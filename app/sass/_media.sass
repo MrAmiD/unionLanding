@@ -4,14 +4,34 @@
 
 //Extra large: ≥1200px
 +media-breakpoint-down(xl)
-  /**/
+  #my-header .contacts-c .phone-c
+    font-size: 23px
 
 //Large: ≥992px
 +media-breakpoint-down(lg)
-  /**/
+  .mainwin-sec .input-c .input-txt
+    font-size: 35px
+  #consult.white-popup .fancybox-close-small, .popup.white-popup .fancybox-close-small
+    right: 0
+    &:after
+      background: #ffffff
+      color: $dark
+  #consult.white-popup .fancybox-close-small:focus:after, #consult.white-popup .fancybox-close-small:hover:after, .popup.white-popup .fancybox-close-small:focus:after, .popup.white-popup .fancybox-close-small:hover:after
+    background: #ffffff
+    color: $dark
+  .month-sec .month-r .month-c .month-i .svg-c .svg-arr
+    right: -90px
+  .case-sec .case-slider .item .company-i .name-c
+    font-size: 22px
 
 //Medium: ≥768px
 +media-breakpoint-down(md)
+  .case-sec .case-slider .item .col-12
+    margin-bottom: 30px
+  .director-sec .director-prev
+    min-height: 460px
+  .aboutus-sec .about-r .about-c .about-i
+    padding-bottom: 37px
   .content
     table
       overflow-x: scroll
@@ -21,14 +41,131 @@
         display: block
         min-width: 500px
         width: 100%
+  #my-header
+    padding: 15px 0px
+  #my-header .discr
+    font-size: 12px
+    text-transform: none
+    line-height: 1.2
+    margin-top: 15px
+  #my-header .header-r
+    align-items: flex-start
+  .mainwin-sec .input-c .input-txt
+    font-size: 24px
+  .sec-standart .h2
+    font-size: 40px
 //Small: ≥576px
 +media-breakpoint-down(sm)
-  /**/
+  .director-sec .director-prev
+    margin-bottom: 30px
+  .month-sec .month-r .month-c .month-i .svg-c
+    margin: auto
+  .month-sec .month-r .month-c .month-i p
+    text-align: center
+    margin-top: 30px
+  .month-sec .month-r .month-c .month-i .svg-c .svg-arr
+    right: -52px
+  .white-popup
+    padding-left: 0px
+    padding-right: 0px
+  #my-header
+    .logo-c
+      img
+        max-width: 200px
+  .mainwin-sec .input-c
+    flex-direction: column
+  .mainwin-sec .input-c
+    background: transparent
+    align-items: flex-start
+  .mainwin-sec .input-c .input-txt
+    background: #ffffff
+    width: 100%
+    border-radius: 5px
+  .mainwin-sec .input-c .anal-btn
+    border-radius: 5px
+    margin: 0px
+    margin-top: 10px
+    width: 100%
 //Extra small: >0
 +media-breakpoint-down(xs)
-	/**/
-
-
+  .brb-sec .btn-accent
+    margin-top: 30px
+  .case-sec .case-slider .item .company-i
+    min-height: 1px
+  .slider-trigers-r .slider-trigers-c .slider-trigers
+    margin-bottom: 20px
+  .case-sec .case-slider .item .h3
+    margin-top: 35px
+  .director-sec .director-prev
+    min-height: 285px
+  .director-sec .btn-accent
+    width: 100%
+  #consult, .popup
+    padding-top: 30px
+    padding-bottom: 30px
+  .month-sec .month-r .month-c .month-i .svg-c .svg-arr
+    right: -34px
+    top: 29px
+    display: none
+  .month-sec .month-r .month-c .month-i .svg-c
+    width: 76px
+    height: 76px
+  .siteless-c
+    flex-direction: column
+    align-items: flex-start
+    .jq-checkbox
+      margin-right: 0px
+      margin-bottom: 10px
+    label
+      margin-left: 0px!important
+    .or-txt
+      margin: 0px
+      margin-bottom: 15px
+    .sl-r
+      width: 100%
+      flex-grow: unset
+      &.cb-r
+        margin-top: 15px
+        flex-direction: column
+  #consult .h2, .popup .h2
+    font-size: 28px
+  #consult .h5, .popup .h5
+    font-size: 21px
+  #consult .h4, .popup .h4
+    font-size: 20px
+  #consult .btn-accent.big-btn, .popup .btn-accent.big-btn
+    min-width: 100px
+  #consult .btn-accent, .popup .btn-accent
+    padding: 10px
+    width: 100%
+    text-align: center
+    .txt-btn
+      width: 100%
+    .js-sitename
+      width: 100%
+      text-align: center
+      max-width: 500px
+  #my-header .contacts-c p.msg
+    display: none
+  #my-header .contacts-c .phone-c
+    font-size: 20px
+  #my-header
+    .discr
+      margin-top: 4px
+    .contacts-c
+      margin-top: 8px
+  #my-header .contacts-c .phone-c
+    margin-top: 4px
+    display: inline-block
+  .mainwin-sec .input-c .input-txt
+    font-size: 16px
+    padding-left: 15px
+    padding-right: 5px
+    height: 40px
+  .mainwin-sec .input-c .anal-btn
+    font-size: 16px
+  .mainwin-sec .main-win-c .col-12
+    padding: 0px
 /*==========  Mobile First  ==========*/
 
 //Extra small: <576px

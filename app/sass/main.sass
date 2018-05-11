@@ -78,7 +78,7 @@ p
 	font-family: $default-font
 	font-size: 16px
 	color: $dark
-	font-weight: 300
+	font-weight: 500
 	line-height: 26px
 a
 	text-decoration: none
@@ -90,14 +90,14 @@ a
 		text-decoration: none
 		color: $accent
 button:not(.btn-flat)
-	-webkit-appearance: button-bevel
+	border: none
 
 input
 	font-family: $default-font
 	display: inline-block
 	border: solid 1px #d9d9d9
 	font-size: 18px
-	font-weight: 300
+	font-weight: 500
 	height: 36px
 	line-height: 36px
 	padding-left: 20px
@@ -186,6 +186,18 @@ input
 	8%, 12%
 		transform: translate3d(4px, 0, 0)
 	100%
+@keyframes typing
+	from
+		width: 0
+	to
+		width: 100%
+@keyframes blink-caret
+	from, to
+		border-color: transparent
+	50%
+		border-color: $accent
+
+
 .text-center
 	text-align: center
 ::selection
@@ -203,9 +215,7 @@ input
 	width: 40px
 	height: 40px
 	text-decoration: none
-	-webkit-border-radius: 35px
-	-moz-border-radius: 35px
-	border-radius: 35px
+	border-radius: 14px
 	display: none
 	-webkit-transition: all 0.3s linear
 	-moz-transition: all 0.3s ease
@@ -630,32 +640,157 @@ html.mm-opening .mm-menu~.mm-slideout
 				transition: background .3s ease
 
 
+.jq-selectbox
+	max-width: 100%
+	width: 100%
+	border-color: $dark!important
+
+	.jq-selectbox__dropdown
+		min-width: 250px
+		top: 35px!important
+	.jq-selectbox__select
+		background: #FFFFFF
+		box-shadow: none
+		font-family: $default-font
+		border-color: $dark!important
+		line-height: 36px
+		height: 36px
+		margin-bottom: 30px
+	.jq-selectbox__trigger
+		border-color: transparent
+	li
+		transition: none
+		&:hover
+			background-color: $accent!important
+		&.selected.sel
+			background: lighten($accent, 10)
+	ul
+		max-width: 100%
+	.jq-selectbox__dropdown
+		max-width: 100%
+	.jq-selectbox__trigger
+		background-repeat: no-repeat
+		background-position: center
+		background-image: url("../img/arrowSelect.png")
+		border-left: solid 1px $dark
+	.jq-selectbox__trigger-arrow
+		border: none
+	.jq-selectbox__select-text
+		max-width: 100%
+	li
+		white-space: inherit
+		&:nth-child(odd)
+			background: lighten($grey, 10)
+
+.siteless-c
+	display: flex
+	align-items: center
+	margin-bottom: 30px
+	input
+		margin-bottom: 0px!important
+	.or-txt
+		font-size: 14px
+		font-weight: 900
+		display: inline-block
+		margin-right: 18px
+		margin-left: 18px
+	.sl-r
+		flex-grow: 1
+		&.disabled
+			pointer-events: none
+		&.cb-r
+			display: flex
+			align-items: center
+			margin-top: 24px
+			label
+				margin-bottom: 0px
+				margin-left: 8px
+	.jq-checkbox, .jq-radio
+		background: #FFFFFF
+		border-color: $dark
+	.jq-checkbox, .jq-radio
+		width: 44px
+		height: 44px
+	.jq-checkbox.checked .jq-checkbox__div
+		width: 100%
+		height: 100%
+		margin: 0px
+		//border-bottom: 4px solid $accent
+		//border-left: 4px solid $accent
+		border: none
+		background-image: url("../img/arrowSelectBig.png")
+		background-repeat: no-repeat
+		background-position: center
+		transform: none
 
 #consult, .popup
 	background: $accent2
+	overflow: visible
+	border-radius: 3px
+	margin-right: 15px
+	margin-left: 15px
+	padding-top: 75px
+	padding-bottom: 75px
 	&.white-popup
 		background: #fff
 		.h3, .h4, p, a, label
 			color: $dark
 		input
-			border-radius: 0px
-			border: solid 2px $accent
+			border: solid 1px $dark
+			border-radius: 3px
+			margin-bottom: 30px
+			padding-left: 5px
+			font-size: 14px
 		textarea
-			border: solid 2px $accent
+			border: solid 1px $dark
+			border-radius: 3px
 		.fancybox-close-small
+			right: -45px
 			&:after
-				color: $dark
+				color: #FFFFFF
+				background: $accent
 			&:hover, &:focus
 				&:after
-					color: lighten($dark, 20)
+					background: darken($accent, 20)
+					color: #FFFFFF
+		label
+			color: $dark !important
+			font-weight: 900
+			font-size: 14px
+	.title-txt
+		margin-bottom: 30px
+	.txt-btn
+		display: inline-block
+	.btn-accent
+		font-size: 16px
+		font-weight: 700
+		border-radius: 13px
+		display: flex
+		align-items: center
+		flex-wrap: wrap
+		margin: auto
+		padding: 17px 45px
+		text-align: center
+		&.big-btn
+			min-width: 405px
+			text-align: center
+			justify-content: center
 	.h1
 		margin-bottom: 15px
+	.h2
+		font-size: 41px
+		font-weight: 100
+		text-align: center
+	.h5
+		font-size: 26px
+		text-align: center
+		font-weight: 100
 	.h3
 		color: #FFFFFF
 		text-align: center
 		margin-bottom: 20px
 	.container
-		max-width: 460px
+		max-width: 760px
 		height: 100%
 		justify-content: center
 		align-items: center
@@ -664,9 +799,10 @@ html.mm-opening .mm-menu~.mm-slideout
 			width: 100%
 	.h4
 		color: #FFFFFF
-		font-size: 25px
-		font-weight: 900
+		font-size: 30px
+		font-weight: 100
 		margin-bottom: 20px
+		text-align: center
 	p
 		color: #FFFFFF
 		margin-top: 20px
@@ -687,9 +823,10 @@ html.mm-opening .mm-menu~.mm-slideout
 		background: #FFFFFF
 		border: none
 		border-bottom: solid 1px #FFFFFF
-		line-height: 40px
+		line-height: 44px
 		color: $dark
 		margin-bottom: 15px
+		height: 44px
 		&::-webkit-input-placeholder
 			color: $dark
 		&:-moz-placeholder
@@ -755,13 +892,15 @@ html.mm-opening .mm-menu~.mm-slideout
 		color: #ffffff
 .btn-accent
 	background: $accent
-	text-align: right
+	text-align: center
 	padding: 10px 45px
-	border-radius: 5px
-	font-size: 23px
+	border-radius: 14px
+	font-size: 18px
 	color: #FFFFFF
+	cursor: pointer
+	transition: all .3s ease
 	&:hover, &:focus
-		background: $dark
+		background: darken($accent, 10)
 		color: #FFFFFF
 .btn-white
 	background: #ffffff
@@ -822,14 +961,20 @@ html.mm-opening .mm-menu~.mm-slideout
 
 
 .btn-transparent
-	border: solid 1px $accent
-	border-radius: 5px
-	padding: 10px 50px
-	font-size: 23px
+	border: solid 1px $dark!important
+	border-radius: 14px
+	padding: 10px 50px 
+	background: transparent
+	font-size: 18px
+	cursor: pointer
+	transition: all .3s ease
 	svg
 		position: relative
 		top: 7px
 		right: 10px
+	&:focus, &:hover
+		color: $accent
+		border-color: $accent!important
 	&:after
 		content: ''
 		width: 100%
@@ -1008,6 +1153,394 @@ html.mm-opening .mm-menu~.mm-slideout
 		display: none
 #my-footer
 	min-height: 400px
+.accent-txt
+	color: $accent!important
+#my-header
+	background: rgba($dark, 0.8)
+	padding: 30px 0px
+	position: absolute
+	top: 0px
+	width: 100%
+	z-index: 2
+	.header-r
+		align-items: center
+	.discr
+		color: #ffffff
+		font-weight: 100
+		font-size: 18px
+		text-transform: uppercase
+		margin-bottom: 0px
+	.contacts-c
+		.mail-t
+			color: #FFFFFF
+			font-size: 14px
+			&:hover, &:focus
+				text-decoration: underline
+		.phone-c
+			color: $accent
+			font-size: 30px
+			&:hover, &:focus
+				color: darken($accent, 10)
+		a
+			color: #FFFFFF
+		p.msg
+			color: #FFFFFF
+			margin-bottom: 0px
+.mainwin-sec
+	height: 630px
+	max-height: 100vh
+	width: 100%
+	.main-win-c
+		display: flex
+		align-items: center
+		height: 100%
+	.input-c
+		background: #FFFFFF
+		display: flex
+		justify-content: space-between
+		align-items: center
+		border-radius: 14px
+		max-width: 1073px
+		margin-top: 132px
+		.input-txt
+			font-size: 43px
+			font-weight: 100
+			padding-left: 30px
+			display: inline-flex
+			align-items: center
+			.txt-type
+				overflow: hidden
+				border-right: 2px solid $accent
+				white-space: nowrap
+				animation: typing 3.5s steps(30, end), blink-caret 1s step-end infinite
+				display: inline-block
+		.anal-btn
+			background: $accent
+			border-top-right-radius: 14px
+			border-bottom-right-radius: 14px
+			margin: -1px
+			font-size: 18px
+			font-weight: 700
+			color: #FFFFFF
+			padding: 11px 30px
+			cursor: pointer
+			&:hover, &:focus
+				background: darken($accent, 10)
+	.discr-txt
+		color: #FFFFFF
+		font-size: 19px
+		font-weight: 700
+		margin-top: 10px
+
+.order-accept
+	.js-sitename
+		display: inline!important
+.js-sitename
+	max-width: 100px
+	text-overflow: ellipsis
+	display: inline-block
+	overflow: hidden
+	white-space: nowrap
+
+.sec-standart
+	padding: 90px 0px
+	.h2
+		font-weight: 100
+		font-size: 61px
+.claster-sec
+	.wtf-c
+		color: $accent
+		font-weight: 900
+		font-size: 33px
+		display: flex
+		align-items: center
+		margin: 15px 0px
+		.svg-c
+			margin-right: 10px
+	.claster-profit-r
+		.item-c
+			margin-bottom: 15px
+			.item-p
+				background: $accent
+				padding: 42px 26px
+				height: 100%
+				&.white-i
+					background: #FFFFFF
+					box-shadow: 1px 0px 10.66px 2.34px rgba(0, 1, 2, 0.1)
+					.h5
+						color: $dark
+					.discr
+						color: $dark
+				.h5
+					font-size: 26px
+					font-weight: 700
+					color: #FFFFFF
+				.discr
+					color: #FFFFFF
+					font-size: 14px
+					margin-bottom: 0px
+
+.seo-steps
+	background: $grey
+	background-image: url("../img/wordsBg.png")
+	background-size: cover
+	.h2
+		margin-bottom: 60px
+	.seo-steps-r
+		.seo-steps-c
+			.seo-steps-i
+				height: 213px
+				background: #FFFFFF
+				padding: 37px 23px
+				padding-bottom: 23px
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+				position: relative
+				padding-right: 45px
+				margin-bottom: 30px
+				.num-i
+					position: absolute
+					font-size: 51px
+					color: $accent
+					font-weight: 100
+					right: 20px
+					top: 8px
+				.h4
+					font-size: 18px
+					font-weight: 700
+				button
+					max-width: 225px
+					padding: 10px 15px
+.aboutus-sec
+	background-image: url("../img/bgWall.png")
+	background-size: cover
+	background-repeat: no-repeat
+	.h2
+		margin-bottom: 15px
+	.btn-c
+		margin-top: 15px
+		button
+			width: 100%
+	.about-r
+		.about-c
+			margin-bottom: 15px
+			.about-i
+				background: $dark
+				padding: 77px 37px
+				position: relative
+				height: 100%
+				.h3
+					color: #FFFFFF
+					font-size: 28px
+					font-weight: 100
+					min-height: 52px
+				p
+					color: #FFFFFF
+					font-weight: 100
+				.label-top
+					width: 52px
+					height: 63px
+					position: absolute
+					top: 0px
+					right: 30px
+					background-image: url("../img/labelAbout.png")
+					.svg-c
+						text-align: center
+						display: flex
+						align-items: center
+						justify-content: center
+						height: 50px
+
+.month-sec
+	background: #f3f4f6
+	.h2
+		margin-bottom: 41px
+	.btn-accent
+		padding: 10px 43px
+	.svg-star-c
+		padding-left: 15px
+		position: relative
+		margin-top: 50px
+		.svg-star
+			position: absolute
+			top: -11px
+			left: 0px
+	.month-r
+		margin-bottom: 30px
+		.month-c
+			&:last-child
+				.svg-arr
+					display: none
+			.month-i
+				.svg-c
+					background: $dark
+					width: 94px
+					height: 94px
+					display: flex
+					align-items: center
+					justify-content: center
+					border-radius: 500px
+					margin-bottom: 20px
+					position: relative
+					.svg-arr
+						position: absolute
+						top: 37px
+						right: -55px
+				p
+					font-size: 14px
+					line-height: 1.2
+.director-sec
+	.dir-r
+		align-items: center
+	.h2
+		line-height: 1
+		margin-bottom: 45px
+	b
+		font-weight: 700
+		font-size: 24px
+	p
+		max-width: 400px
+	.accent-txt
+		margin-bottom: 45px
+	.director-prev
+		background-size: cover
+		background-position: center
+		background-repeat: no-repeat
+		min-height: 570px
+		height: 100%
+
+.slider-trigers-r
+	.slider-trigers-c
+		.slider-trigers-num
+			font-weight: 900
+			font-size: 14px
+			margin-bottom: 5px
+		.slider-trigers
+			display: flex
+			.item-t
+				width: 33px
+				height: 8px
+				background: $dark
+				margin-right: 8px
+				border-radius: 20px
+				cursor: pointer
+				&.active
+					background: $accent
+
+.case-sec
+	background: #f3f4f6
+	.case-slider
+		.slick-next:before, .slick-prev:before
+			display: none
+		.slick-next, .slick-prev
+			top: calc(59px + 50%)
+		.slick-next
+			right: -34px
+		.slick-prev
+			left: -34px
+		.item
+			.h3
+				color: $accent
+				font-size: 29px
+				font-weight: 500
+				margin-bottom: 37px
+				margin-top: 55px
+			.company-i
+				background: #FFFFFF
+				min-height: 350px
+				height: 100%
+				padding: 45px 15px
+				display: flex
+				justify-content: space-between
+				flex-direction: column
+				p
+					&.discr
+						font-size: 14px
+						margin-bottom: 0px
+				img
+					max-width: 100%
+					display: block
+					margin-top: 15px
+				.name-c
+					font-size: 24px
+					font-weight: 100
+				.requests
+					display: flex
+					justify-content: space-between
+					align-items: center
+				.svg-c
+					display: flex
+					align-items: center
+				.graph-c
+					img
+						max-width: 100%
+						margin-top: 40px
+			.requests-list
+				margin-top: 35px
+				max-height: 218px
+				overflow: auto
+				ul
+					padding: 0px
+					margin: 0px
+					list-style: none
+					li
+						display: flex
+						align-items: center
+						justify-content: space-between
+						font-size: 14px
+						.txt
+							border-bottom: solid 1px $accent
+							margin-bottom: 10px
+							cursor: pointer
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar
+	background-color: $accent !important
+.brb-sec
+	.h2
+		font-size: 59px
+		text-align: center
+	.h3
+		font-size: 38px
+		font-weight: 100
+		text-align: center
+	.btn-accent
+		font-size: 38px
+		font-weight: 100
+		border-radius: 100px
+.feedback-sec
+	background: $grey
+	.c-name
+		font-weight: 500
+		font-size: 34px
+		margin-bottom: 10px
+	.company-info
+		ul
+			padding: 0px
+			margin: 0px
+			display: flex
+			list-style: none
+			li
+				padding-left: 30px
+				position: relative
+				font-size: 14px
+				&:not(:first-child):after
+					content: ''
+					position: absolute
+					top: 0px
+					left: 11px
+					width: 8px
+					height: 8px
+					background: $accent
+					border-radius: 100px
+					top: 50%
+					transform: translate(0, -50%)
+				&:first-child
+					padding-left: 0px
+				a
+					color: $accent
+					text-decoration: underline
+					&:hover, &:focus
+						text-decoration: none
 /*Project end*/
 
 
